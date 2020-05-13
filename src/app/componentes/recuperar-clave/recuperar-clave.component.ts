@@ -21,7 +21,6 @@ export class RecuperarClaveComponent extends ValidacionCampo implements OnInit {
   enviar() {
     this.btnIniciarClick = true;
     if (this.form.valid) {
-
     }
   }
 
