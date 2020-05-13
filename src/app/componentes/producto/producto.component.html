@@ -1,0 +1,81 @@
+<app-menu></app-menu>
+<app-notificacion></app-notificacion>
+<div class="alineacion-derecha">
+  <button type="button" pButton icon="pi pi-plus" (click)="agregar()" label="{{properties.btn_agregar}}"></button>
+</div>
+<p-table [columns]="columnas" [value]="productos" selectionMode="single" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10">
+  <ng-template pTemplate="caption">
+    {{properties.lbl_lista_productos}}
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{col.header}}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td *ngFor="let col of columns">
+        {{rowData[col.field]}}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog header="{{properties.lbl_producto}}" class="expandir" [(visible)]="displayDialog" [focusOnShow]="false" [responsive]="true" showEffect="fade"
+          [modal]="true">
+  <form [formGroup]="form">
+    <div class="ui-fluid ui-g" *ngIf="producto">
+      <div class="ui-g-12">
+        <div class="ui-g-12 ui-sm-12">
+          <div class="ui-g-4 ui-sm-12">
+            <label for="descripcion" class="control-label required">{{properties.lbl_descripcion}}</label>
+          </div>
+          <div class="ui-g-8 ui-sm-12 form-group" [ngClass]="displayFieldCss('descripcion')">
+            <input type="text" id="descripcion" class="form-control"  formControlName="descripcion" [(ngModel)]="producto.descripcion">
+            <app-error-campo
+              [displayError]="isFieldValid('descripcion')"
+              errorMsg="{{properties.error_campo_requerido}}">
+            </app-error-campo>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-sm-12">
+          <div class="ui-g-4 ui-sm-12">
+            <label for="precio" class="control-label required">{{properties.lbl_precio}}</label>
+          </div>
+          <div class="ui-g-8 ui-sm-12 form-group" [ngClass]="displayFieldCss('precio')">
+            <input type="number" step="0.01" id="precio" class="form-control" formControlName="precio" [(ngModel)]="producto.precio">
+            <app-error-campo
+              [displayError]="isFieldValid('precio')"
+              errorMsg="{{properties.error_campo_requerido}}">
+            </app-error-campo>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-sm-12">
+          <div class="ui-g-4 ui-sm-12">
+            <label class="control-label ">{{properties.lbl_codigo}}</label>
+          </div>
+          <div class="ui-g-8 ui-sm-12">
+            <input type="text" id="codigo" class="form-control" formControlName="codigo" [(ngModel)]="producto.codigo">
+          </div>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <div class="ui-dialog-buttonpane ui-helper-clearfix">
+        <button pButton type="button"  label="{{properties.btn_guardar}}" class="ui-button-success" (click)="guardar()"></button>
+        <button pButton type="button" label="{{properties.btn_eliminar}}" class="ui-button-danger" (click)="confirm()"
+                [hidden]="nuevoProducto"></button>
+        <button pButton type="button" label="{{properties.btn_cancelar}}" class="ui-button-secondary" (click)="cancelar()"></button>
+        <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+      </div>
+    </p-footer>
+  </form>
+</p-dialog>
+
+
+

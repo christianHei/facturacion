@@ -1,0 +1,100 @@
+<app-notificacion></app-notificacion>
+<form class="horizontal-center alineacion-izquierda expandir" [formGroup]="form" [hidden]="!ocultar">
+  <p-panel >
+    <p-header>
+      {{properties.lbl_registro_usuario}}
+    </p-header>
+    <div class="ui-fluid ui-g">
+      <div class="ui-g-12">
+        <div class="ui-g-6 ui-sm-12">
+          <div class="ui-g-3 ui-sm-12">
+            <label for="nombre" class="control-label required">{{properties.lbl_nombre}}</label>
+          </div>
+          <div class="ui-g-8 ui-sm-12 form-group" [ngClass]="displayFieldCss('nombre')">
+            <input type="text" class="form-control" id="nombre" formControlName="nombre" [(ngModel)]="usuario.nombre">
+            <app-error-campo
+              [displayError]="isFieldValid('nombre')"
+              errorMsg="{{properties.error_campo_requerido}}">
+            </app-error-campo>
+          </div>
+        </div>
+
+        <div class="ui-g-6 ui-sm-12">
+          <div class="ui-g-3 ui-sm-12">
+            <label for="apellido" class="control-label required">{{properties.lbl_apellido}}</label>
+          </div>
+          <div class="ui-g-8 ui-sm-12 form-group" [ngClass]="displayFieldCss('apellido')">
+            <input type="text" class="form-control" id="apellido" formControlName="apellido" [(ngModel)]="usuario.apellido">
+            <app-error-campo
+              [displayError]="isFieldValid('apellido')"
+              errorMsg="{{properties.error_campo_requerido}}">
+            </app-error-campo>
+          </div>
+        </div>
+
+        <div class="ui-g-6 ui-sm-12">
+          <div class="ui-g-3 ui-sm-12">
+            <label for="email" class="control-label required">{{properties.lbl_email}}</label>
+          </div>
+          <div class="ui-g-8 ui-sm-12 form-group" [ngClass]="displayFieldCss('email')">
+            <input type="email" id="email" class="form-control" formControlName="email"[(ngModel)]="usuario.email">
+            <app-error-campo
+              [displayError]="isFieldValid('email')"
+              errorMsg="{{properties.error_campo_requerido}}">
+            </app-error-campo>
+          </div>
+        </div>
+
+        <div class="ui-g-6 ui-sm-12">
+          <div class="ui-g-3 ui-sm-12">
+            <label for="nombreUsuario" class="control-label required">{{properties.lbl_nombre_usuario}}</label>
+          </div>
+          <div class="ui-g-8 ui-sm-12 form-group" [ngClass]="displayFieldCss('nombreUsuario')">
+            <input type="text" class="form-control" id="nombreUsuario" formControlName="nombreUsuario" [(ngModel)]="usuario.nombreUsuario">
+            <app-error-campo
+              [displayError]="isFieldValid('nombreUsuario')"
+              errorMsg="{{properties.error_campo_requerido}}">
+            </app-error-campo>
+          </div>
+        </div>
+
+        <div class="ui-g-6 ui-sm-12">
+          <div class="ui-g-3 ui-sm-12">
+            <label for="clave" class="control-label required">{{properties.lbl_contrasenia}}</label>
+          </div>
+          <div class="ui-g-8 ui-sm-12 form-group" [ngClass]="displayFieldCss('clave')">
+            <input type="password" pPassword class="form-control" id="clave" formControlName="clave" [(ngModel)]="usuario.clave">
+            <app-error-campo
+              [displayError]="isFieldValid('clave')"
+              errorMsg="{{properties.error_campo_requerido}}">
+            </app-error-campo>
+          </div>
+        </div>
+
+        <div class="ui-g-6 ui-sm-12">
+          <div class="ui-g-3 ui-sm-12">
+            <label for="confirmarClave" class="control-label required">{{properties.lbl_confirmar_contrasenia}}</label>
+          </div>
+          <div class="ui-g-8 ui-sm-12 form-group" [ngClass]="displayFieldCss('confirmarClave')">
+            <input type="password" pPassword class="form-control" id="confirmarClave" formControlName="confirmarClave" [(ngModel)]="confirmarClave">
+            <app-error-campo
+              [displayError]="isFieldValid('confirmarClave')"
+              errorMsg="{{properties.error_campo_requerido}}">
+            </app-error-campo>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <div class="ui-dialog-buttonpane ui-helper-clearfix alineacion-centro">
+        <button pButton type="button" label="{{properties.btn_guardar}}" class="ui-button-success" (click)="guardar()"></button>
+        <button pButton type="button" label="{{properties.btn_cancelar}}" class="ui-button-secondary" (click)="cancelar()"></button>
+      </div>
+    </p-footer>
+  </p-panel>
+</form>
+<p-footer [hidden]="ocultar">
+  <div class="ui-dialog-buttonpane ui-helper-clearfix alineacion-centro">
+    <button pButton type="button" label="{{properties.btn_empezar}}" class="ui-button-success" (click)="empezar()"></button>
+  </div>
+</p-footer>

@@ -1,0 +1,131 @@
+<app-menu></app-menu>
+<app-notificacion></app-notificacion>
+<p-panel >
+  <p-header>
+    {{properties.lbl_facturacion}}
+  </p-header>
+  <div class="ui-fluid ui-g" >
+    <div class="ui-g-12">
+      <div class="ui-g-12 ui-sm-12">
+        <div class="ui-g-4 ui-sm-12">
+          <label class="required"><strong>{{properties.lbl_razon_social_nombre_apellido}}:</strong></label>
+        </div>
+        <div class="ui-g-8 ui-sm-12">
+          <label class="margin-0">{{cliente.nombre}} {{cliente.apellido}}</label>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-sm-12">
+        <div class="ui-g-4 ui-sm-12">
+          <label><strong>{{properties.lbl_identificacion}}:</strong></label>
+        </div>
+        <div class="ui-g-8 ui-sm-12">
+          <label>{{identificacion.numero}}</label>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-sm-12">
+        <div class="ui-g-4 ui-sm-12">
+          <label><strong>{{properties.lbl_fecha_emision}}:</strong></label>
+        </div>
+        <div class="ui-g-8 ui-sm-12">
+          <label>{{factura.fecha}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="alineacion-derecha">
+    <button type="button" pButton icon="pi pi-plus" (click)="agregar()" label="{{properties.btn_agregar}}"></button>
+  </div>
+  <p-table [columns]="columnas" [value]="listaFacturaDetalle" selectionMode="single" [(selection)]="facturaDetalleSeleccionado" (onRowSelect)="onRowSelect($event)" [paginator]="false">
+    <ng-template pTemplate="caption">
+      {{properties.lbl_detalle_factura}}
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr [pSelectableRow]="rowData">
+        <td class="ui-resizable-column"><span>{{ rowData[columns[0].field].descripcion}}</span></td>
+        <td class="ui-resizable-column"><span>{{ rowData[columns[1].field] }}</span></td>
+        <td class="ui-resizable-column"><span>{{ rowData[columns[2].field] }}</span></td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td class="sin-borde"></td>
+        <td>{{properties.lbl_subtotal_12}}</td>
+        <td>{{factura.subtotalIva}}</td>
+      </tr>
+      <tr>
+        <td class="sin-borde"></td>
+        <td>{{properties.lbl_subtotal_0}}</td>
+        <td>{{factura.subtotal}}</td>
+      </tr>
+      <tr>
+        <td class="sin-borde"></td>
+        <td>{{properties.lbl_iva}}</td>
+        <td>{{factura.iva}}</td>
+      </tr>
+      <tr>
+        <td class="sin-borde"></td>
+        <td>{{properties.lbl_total}}</td>
+        <td>{{factura.total}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-helper-clearfix alineacion-centro">
+      <button pButton type="button" label="{{properties.btn_guardar}}" class="ui-button-success" (click)="confirm()"></button>
+      <button pButton type="button" label="{{properties.btn_cancelar}}" class="ui-button-secondary" (click)="cancelarFactura()"></button>
+      <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+    </div>
+  </p-footer>
+</p-panel>
+
+<p-dialog header="{{properties.lbl_producto}}" class="expandir" [(visible)]="displayDialog" [focusOnShow]="false" [responsive]="true"
+          showEffect="fade" [modal]="true">
+  <form [formGroup]="form">
+    <div class="ui-fluid ui-g" *ngIf="facturaDetalle">
+      <div class="ui-g-12">
+        <div class="ui-g-12 ui-sm-12">
+          <div class="ui-g-4 ui-sm-12 ui-g-4-padding-margin-0">
+            <label for="producto" class="control-label required">{{properties.lbl_producto}}</label>
+          </div>
+          <div class="ui-g-8 ui-sm-12 form-group" [ngClass]="displayFieldCss('producto')">
+            <p-dropdown id="producto" class="form-control" formControlName="producto" [options]="productosSelect"
+                        [(ngModel)]="facturaDetalle.producto" filter="true"></p-dropdown>
+            <app-error-campo
+              [displayError]="isFieldValid('producto')"
+              errorMsg="{{properties.error_campo_requerido}}">
+            </app-error-campo>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-sm-12">
+          <div class="ui-g-4 ui-sm-12">
+            <label for="cantidad" class="control-label required">{{properties.lbl_cantidad}}</label>
+          </div>
+          <div class="ui-g-8 ui-sm-12 form-group" [ngClass]="displayFieldCss('cantidad')">
+            <input type="text" id="cantidad" class="form-control" formControlName="cantidad" [(ngModel)]="facturaDetalle.cantidad">
+            <app-error-campo
+              [displayError]="isFieldValid('cantidad')"
+              errorMsg="{{properties.error_campo_requerido}}">
+            </app-error-campo>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <div class="ui-dialog-buttonpane ui-helper-clearfix">
+        <button pButton type="button" label="{{properties.btn_guardar}}" class="ui-button-success" (click)="guardarDetalle()"></button>
+        <button pButton type="button" label="{{properties.btn_eliminar}}" class="ui-button-danger" (click)="eliminarDetalle()"
+                [hidden]="nuevoDetalle"></button>
+        <button pButton type="button" label="{{properties.btn_cancelar}}" class="ui-button-secondary" (click)="cancelarDetalle()"></button>
+      </div>
+    </p-footer>
+  </form>
+</p-dialog>
+

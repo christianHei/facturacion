@@ -1,0 +1,32 @@
+<app-notificacion></app-notificacion>
+<form class="vertical-center alineacion-izquierda" [formGroup]="form">
+  <div class="form-group" [ngClass]="displayFieldCss('nombreUsuario')">
+    <div class=" form-group col-sm-12">
+      <label>{{properties.lbl_nombre_usuario}}:</label>
+      <input type="text" id="nombreUsuario" class="form-control" formControlName="nombreUsuario" [(ngModel)]="usuario.nombreUsuario">
+      <app-error-campo [displayError]="isFieldValid('nombreUsuario')" errorMsg="{{properties.lbl_ingreso_nombre_usuario}}">
+      </app-error-campo>
+    </div>
+  </div>
+  <br/>
+  <div class="form-group" [ngClass]="displayFieldCss('password')">
+    <div class="col-sm-12">
+      <label>{{properties.lbl_contrasenia}}:</label>
+      <input type="password" id="password" class="form-control" formControlName="password" [(ngModel)]="usuario.clave">
+      <app-error-campo [displayError]="isFieldValid('password')" errorMsg="{{properties.lbl_ingreso_contrasenia}}">
+      </app-error-campo>
+    </div>
+  </div>
+  <br/>
+  <div class="col-sm-12">
+    <button class="btn btn-success px_250" (click)="iniciarSesion()">{{properties.btn_iniciar_sesion}}</button>
+  </div>
+  <br/>
+  <div class="col-sm-12">
+    <button type="button" class="btn btn-link" (click)="recuperarClave()">{{properties.btn_olvidaste_tu_contrasenia}}</button>
+  </div>
+  <br/>
+  <div class="col-sm-12">
+    <button type="submit" class="btn btn-outline-danger px_250" (click)="registro()">{{properties.btn_registrate_gratis}}</button>
+  </div>
+</form>

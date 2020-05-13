@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+  <div class="vertical-center alineacion-izquierda">
+    <div class="form-group" [ngClass]="displayFieldCss('email')">
+      <div class="col-sm-12">
+        <label for="email" class="control-label required"></label>
+        <input type="text" id="email" class="form-control" formControlName="email" placeholder="email">
+        <app-error-campo [displayError]="isFieldValid('email')" errorMsg="Ingrese el email">
+        </app-error-campo>
+      </div>
+    </div>
+    <br/>
+    <div class="col-sm-12">
+      <button class="btn btn-success px_250" (click)="enviar()">Enviar-p</button>
+    </div>
+    <br/>
+    <div class="col-sm-12">
+      <button type="submit" class="btn btn-secondary px_250" (click)="cancelar()">Cancelar</button>
+    </div>
+  </div>
+</form>
