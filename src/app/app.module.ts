@@ -1,20 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from '@src/app/app-routing.module';
-import { AppComponent } from '@src/app/app.component';
-import { LoginComponent } from '@src/app/componentes/login/login.component';
-import { MenuComponent } from '@src/app/componentes/menu/menu.component';
-import { RegistroComponent } from '@src/app/componentes/registro/registro.component';
-import { ProductoComponent } from '@src/app/componentes/producto/producto.component';
-import { FacturacionComponent } from '@src/app/componentes/facturacion/facturacion.component';
-import { EmpresaComponent } from '@src/app/componentes/empresa/empresa.component';
-import { RecuperarClaveComponent } from '@src/app/componentes/recuperar-clave/recuperar-clave.component';
-import { ClienteComponent } from '@src/app/componentes/cliente/cliente.component';
-import { InicioComponent } from '@src/app/componentes/inicio/inicio.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { MenuComponent } from './componentes/menu/menu.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
+import { ProductoComponent } from './componentes/producto/producto.component';
+import { FacturacionComponent } from './componentes/facturacion/facturacion.component';
+import { EmpresaComponent } from './componentes/empresa/empresa.component';
+import { RecuperarClaveComponent } from './componentes/recuperar-clave/recuperar-clave.component';
+import { ClienteComponent } from './componentes/cliente/cliente.component';
+import { InicioComponent } from './componentes/inicio/inicio.component';
 //
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { ErrorCampoComponent } from '@src/app/componentes/error-campo/error-campo.component';
+import { ErrorCampoComponent } from './componentes/error-campo/error-campo.component';
 import {
   ButtonModule, ConfirmDialogModule,
   DialogModule,
@@ -28,10 +28,10 @@ import {
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {HttpClientModule} from '@angular/common/http';
-import {DatosServicio} from '@src/app/servicio/DatosServicio';
-import {Properties} from '@src/app/properties';
-import {NotificacionServicio} from '@src/app/servicio/NotificacionServicio';
-import { NotificacionComponent } from '@src/app/componentes/notificacion/notificacion.component';
+import {DatosServicio} from './servicio/DatosServicio';
+import {Properties} from './properties';
+import {NotificacionServicio} from './servicio/NotificacionServicio';
+import { NotificacionComponent } from './componentes/notificacion/notificacion.component';
 
 @NgModule({
   declarations: [

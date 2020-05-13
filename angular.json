@@ -122,10 +122,6 @@
           }
         }
       }
-    }
-  },
-  "defaultProject": "facturacion",
-  "cli": {
-    "defaultCollection": "@nativescript/schematics"
-  }
+    }},
+  "defaultProject": "facturacion"
 }
