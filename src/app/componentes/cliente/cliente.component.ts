@@ -28,13 +28,13 @@ export class ClienteComponent extends ValidacionCampo implements OnInit, OnDestr
   tipoIdentificacion: TipoIdentificacion;
 
   constructor(public datosServicio: DatosServicio,
+              public properties: Properties,
               private tipoIdentificacionServicio: TipoIdentificacionServicio,
               private emailServicio: EmailServicio,
               private notificacionServicio: NotificacionServicio,
               private restServicio: RestServicio,
               private router: Router,
-              private formBuilder: FormBuilder,
-              private properties: Properties) {
+              private formBuilder: FormBuilder) {
     super();
   }
 

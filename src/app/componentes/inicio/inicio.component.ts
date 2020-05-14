@@ -13,7 +13,7 @@ export class InicioComponent implements OnInit {
   empresa: Empresa;
 
   constructor(public datosServicio: DatosServicio,
-              private properties: Properties) { }
+              public properties: Properties) { }
 
   ngOnInit() {
     this.empresa = this.datosServicio.empresa;

@@ -17,11 +17,11 @@ import {EmpresaServicio} from '../../servicio/EmpresaServicio';
 export class EmpresaComponent extends ValidacionCampo implements OnInit, OnDestroy {
   empresa: Empresa = new Empresa();
   constructor(public datosServicio: DatosServicio,
+              public properties: Properties,
               private notificacionServicio: NotificacionServicio,
               private empresaServicio: EmpresaServicio,
               private router: Router,
-              private formBuilder: FormBuilder,
-              private properties: Properties) {
+              private formBuilder: FormBuilder) {
     super();
   }
   ngOnInit() {

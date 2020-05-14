@@ -20,12 +20,12 @@ export class LoginComponent extends ValidacionCampo implements OnInit, OnDestroy
   usuario: Usuario;
 
   constructor(public datosServicio: DatosServicio,
+              public properties: Properties,
               private usuarioServicio: UsuarioServicio,
               private notificacionServicio: NotificacionServicio,
               private parametroServicio: ParametroServicio,
               private router: Router,
-              private formBuilder: FormBuilder,
-              private properties: Properties) {
+              private formBuilder: FormBuilder) {
     super();
   }
 

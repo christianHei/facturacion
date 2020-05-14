@@ -1,8 +1,9 @@
 {
   "compileOnSave": false,
+  "allowSyntheticDefaultImports": true,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "outDir": "./www/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,

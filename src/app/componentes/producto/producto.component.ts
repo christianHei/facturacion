@@ -27,9 +27,9 @@ export class ProductoComponent extends ValidacionCampo implements OnInit {
   empresa: Empresa;
 
   constructor(public datosServicio: DatosServicio,
+              public properties: Properties,
               private restServicio: RestServicio,
               private productoServicio: ProductoServicio,
-              private properties: Properties,
               private notificacionServicio: NotificacionServicio,
               private confirmationService: ConfirmationService,
               private router: Router,

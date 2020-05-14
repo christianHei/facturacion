@@ -25,11 +25,11 @@ export class RegistroComponent extends ValidacionCampo implements OnInit {
   ocultar: boolean;
 
   constructor(public datosServicio: DatosServicio,
+              public properties: Properties,
               private usuarioServicio: UsuarioServicio,
               private restServicio: RestServicio,
               private notificacionServicio: NotificacionServicio,
               private emailServicio: EmailServicio,
-              private properties: Properties,
               private router: Router,
               private formBuilder: FormBuilder) {
     super();

@@ -39,13 +39,13 @@ export class FacturacionComponent extends ValidacionCampo implements OnInit {
   empresa: Empresa;
 
   constructor(public datosServicio: DatosServicio,
+              public properties: Properties,
               private productoServicio: ProductoServicio,
               private restServicio: RestServicio,
               private notificacionServicio: NotificacionServicio,
               private confirmationService: ConfirmationService,
               private router: Router,
-              private formBuilder: FormBuilder,
-              private properties: Properties) {
+              private formBuilder: FormBuilder) {
     super();
   }
 
