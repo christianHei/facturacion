@@ -9,7 +9,7 @@ export class UsuarioServicio {
   constructor(private httpClient: HttpClient) {}
 
   obtenerPorNombreUsuario(nombreUsuario: string) {
-    const url = `${this.url}/nombre_usuario/${nombreUsuario}`;
+    const url = `${this.url}/usuario/nombre/usuario/${nombreUsuario}`;
     return this.httpClient.get(url)
       .toPromise()
       .then(res =>  res)

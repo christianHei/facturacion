@@ -1,20 +1,33 @@
-<form [formGroup]="form">
-  <div class="vertical-center alineacion-izquierda">
-    <div class="form-group" [ngClass]="displayFieldCss('email')">
-      <div class="col-sm-12">
-        <label for="email" class="control-label required"></label>
-        <input type="text" id="email" class="form-control" formControlName="email" placeholder="email">
-        <app-error-campo [displayError]="isFieldValid('email')" errorMsg="Ingrese el email">
-        </app-error-campo>
+<app-notificacion></app-notificacion>
+<form class="horizontal-center alineacion-izquierda expandir" [formGroup]="form">
+  <p-panel >
+    <p-header>
+      {{properties.lbl_recuperar_clave}}
+    </p-header>
+    <div class="ui-fluid ui-g">
+      <div class="ui-g-12">
+        <div class="ui-g-6 ui-sm-12">
+          <div class="ui-g-3 ui-sm-12">
+            <label for="email" class="control-label required">{{properties.lbl_email}}</label>
+          </div>
+          <div class="ui-g-8 ui-sm-12 form-group" [ngClass]="displayFieldCss('email')">
+            <input type="email" class="form-control" id="email" formControlName="email" [(ngModel)]="email">
+            <app-error-campo
+              [displayError]="isFieldValid('email')"
+              errorMsg="{{properties.error_campo_requerido}}">
+            </app-error-campo>
+          </div>
+        </div>
       </div>
     </div>
-    <br/>
-    <div class="col-sm-12">
-      <button class="btn btn-success px_250" (click)="enviar()">Enviar-p</button>
-    </div>
-    <br/>
-    <div class="col-sm-12">
-      <button type="submit" class="btn btn-secondary px_250" (click)="cancelar()">Cancelar</button>
-    </div>
-  </div>
+    <p-footer>
+      <div class="ui-dialog-buttonpane ui-helper-clearfix alineacion-centro">
+        <button pButton type="button" label="{{properties.btn_enviar}}" class="ui-button-success" (click)="enviar()"></button>
+        <button pButton type="button" label="{{properties.btn_cancelar}}" class="ui-button-secondary" (click)="cancelar()"></button>
+      </div>
+    </p-footer>
+  </p-panel>
 </form>
+
+
+

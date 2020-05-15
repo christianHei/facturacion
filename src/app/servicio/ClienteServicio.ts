@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import {Empresa} from '../modelo/Empresa';
+import {Cliente} from '../modelo/Cliente';
 
 @Injectable()
-export class EmpresaServicio {
-  private url = environment.facturacionServicio + 'empresa';
+export class ClienteServicio {
+  private url = environment.facturacionServicio + 'cliente';
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
 
   constructor(private httpClient: HttpClient) {}
 
-  obtenerPorRuc(ruc: string) {
-    const url = `${this.url}/ruc/${ruc}`;
+  obtenerPorIdentificacion(identificacion: string) {
+    const url = `${this.url}/identificacion/${identificacion}`;
     return this.httpClient.get(url, { headers: this.headers })
       .toPromise()
       .then(res => res)
-      .then(data => data as Empresa);
+      .then(data => data as Cliente);
   }
 }

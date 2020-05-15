@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  facturacionServicio: 'http://localhost:3333/',
+  facturacionServicio: 'http://localhost:8080/',
 };
 
 /*

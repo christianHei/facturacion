@@ -15,6 +15,7 @@ export class Properties {
   btn_nuevo = 'Nuevo';
   btn_agregar = 'Agregar';
   btn_empezar = 'Empezar';
+  btn_enviar = 'Enviar';
   btn_si = 'Si';
   btn_no = 'No';
 
@@ -54,6 +55,7 @@ export class Properties {
   lbl_cliente = 'Cliente';
   lbl_facturacion = 'Facturación';
   lbl_facturar = 'Facturar';
+  lbl_recuperar_clave = 'Recuperar clave';
 
   //info
 
@@ -61,7 +63,7 @@ export class Properties {
   succes_guardar = 'La información se ha guardado correctamente.';
   succes_actualizar = 'La información se ha actualizado correctamente.';
   succes_eliminar = 'La información se ha eliminado correctamente.';
-
+  succes_envio_email = 'La información se ha enviado correctamente a la dirección de correo indicada.';
 
   //error
   error_campo_requerido = 'Campo requerido';

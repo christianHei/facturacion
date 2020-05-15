@@ -53,13 +53,17 @@ export class RegistroComponent extends ValidacionCampo implements OnInit {
     this.btnIniciarClick = true;
     if (this.form.valid) {
       if (this.usuario.clave === this.confirmarClave) {
+        console.log('ZZZZZZZZZZ111111eail11111ZZZZZZZZZZZZZZ');
         this.emailServicio.validarEmail(this.usuario.email)
           .then(esEmail => {
             if (esEmail) {
               this.usuario.empresa = this.empresa;
+              console.log('ZZZZZZZZZZ11111111111ZZZZZZZZZZZZZZ');
+
               this.usuarioServicio.obtenerPorNombreUsuario(this.usuario.nombreUsuario)
                 .then((usuario: Usuario) => {
                   if (usuario === null) {
+                    console.log('ZZZZZZZZZZZZZZZZZZZZZZZZ');
                     this.restServicio.guardar('usuario/', this.usuario)
                       .then(() => {
                         this.ocultar = false;

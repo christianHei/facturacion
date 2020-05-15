@@ -32,6 +32,7 @@ import {DatosServicio} from './servicio/DatosServicio';
 import {Properties} from './properties';
 import {NotificacionServicio} from './servicio/NotificacionServicio';
 import { NotificacionComponent } from './componentes/notificacion/notificacion.component';
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { NotificacionComponent } from './componentes/notificacion/notificacion.c
     HttpClientModule,
     MessagesModule,
     PasswordModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    HttpModule
   ],
   providers: [DatosServicio, Properties, NotificacionServicio],
   bootstrap: [AppComponent]
