@@ -10,8 +10,8 @@ export class ClienteServicio {
 
   constructor(private httpClient: HttpClient) {}
 
-  obtenerPorIdentificacion(identificacion: string) {
-    const url = `${this.url}/identificacion/${identificacion}`;
+  obtenerPorIdentificacionEmpresa(identificacion: string, idEmpresa: number) {
+    const url = `${this.url}/identificacion_empresa/${identificacion}/${idEmpresa}`;
     return this.httpClient.get(url, { headers: this.headers })
       .toPromise()
       .then(res => res)
