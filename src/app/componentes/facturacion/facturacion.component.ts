@@ -14,7 +14,6 @@ import {ConfirmationService, SelectItem} from 'primeng';
 import {Factura} from '../../modelo/Factura';
 import {RestServicio} from '../../servicio/RestServicio';
 import {NotificacionServicio} from '../../servicio/NotificacionServicio';
-import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-facturacion',
