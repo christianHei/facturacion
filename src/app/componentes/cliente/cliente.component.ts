@@ -54,7 +54,6 @@ export class ClienteComponent extends ValidacionCampo implements OnInit, OnDestr
     });
     this.cliente = new Cliente();
     this.identificacion = new Identificacion();
-    this.tipoIdentificacion = null;
   }
 
   ngOnDestroy() {

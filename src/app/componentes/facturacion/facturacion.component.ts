@@ -14,6 +14,7 @@ import {ConfirmationService, SelectItem} from 'primeng';
 import {Factura} from '../../modelo/Factura';
 import {RestServicio} from '../../servicio/RestServicio';
 import {NotificacionServicio} from '../../servicio/NotificacionServicio';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-facturacion',
@@ -124,20 +125,24 @@ export class FacturacionComponent extends ValidacionCampo implements OnInit {
   }
 
   facturar() {
-    this.factura.listaFacturaDetalle = this.listaFacturaDetalle;
-    this.factura.numeroFactura = '0012145-001';
-    this.restServicio.guardar('factura/', this.factura)
-      .then(() => {
-        this.router.navigate(['/inicio']);
-      })
-      .catch( (err: any) => {
-        if (err.value === 406) {
-          this.notificacionServicio.notificar('error', err.reasonPhrase);
-          return;
-        } else { // cualquier otro error
-          this.notificacionServicio.notificar('error', err.reasonPhrase);
-        }
-      });
+    if (this.listaFacturaDetalle.length !== 0) {
+      this.factura.listaFacturaDetalle = this.listaFacturaDetalle;
+      this.factura.numeroFactura = '0012145-001';
+      this.restServicio.guardar('factura/', this.factura)
+        .then(() => {
+          this.router.navigate(['/inicio']);
+        })
+        .catch( (err: any) => {
+          if (err.value === 406) {
+            this.notificacionServicio.notificar('error', err.reasonPhrase);
+            return;
+          } else { // cualquier otro error
+            this.notificacionServicio.notificar('error', err.reasonPhrase);
+          }
+        });
+    } else {
+      this.notificacionServicio.notificar('warn', this.properties.warn_datalle_vacio);
+    }
   }
 
   cancelarFactura() {

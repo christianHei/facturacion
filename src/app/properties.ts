@@ -78,6 +78,7 @@ export class Properties {
   warn_usuario_existe = 'Ya existe el nombre de usuario ingresado.';
   warn_usuario_clave_incorrecto = 'Nombre de usuario o clave incorrecto.';
   warn_email_incorrecto = 'Ingrese un email válido.';
+  warn_datalle_vacio = 'Ingrese al menos un detalle.';
 
   //confirm
   confirm_eliminar = '¿Desea eliminar este registro?';
