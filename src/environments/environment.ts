@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   /*facturacionServicio: 'http://localhost:8080/',*/
-  facturacionServicio: 'https://8080-dot-12247859-dot-devshell.appspot.com/?authuser=AIzaSyBvqwmjNJPl0vJoUz1PquxIgeg31I-Gfoc'
+  facturacionServicio: 'https://facturacion-service.herokuapp.com/'
 };
 
 /*
