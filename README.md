@@ -1,4 +1,4 @@
-# Facturación - Aplicación con aAngular
+# Facturación - Aplicación con Angular
  
 ## Ver la aplicación en la web en desarrollo
 ng serve
