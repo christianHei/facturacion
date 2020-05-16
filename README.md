@@ -9,10 +9,12 @@ La aplicacíon se levanta por http://localhost:4200/
 ng build
 
 ## Construye la aplicación Angular
-ng build --prod --aot
 
-## Luego se construye con Cordova para Android
+## Construye con Cordova para Android
 cordova build android
+
+## Inicia la apk en un dispositivo Android
+cordova run android
 
 ## Emulador android para la aplicación
 cordova emulate android

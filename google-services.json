@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "566586598760",
+    "firebase_url": "https://facturacion-c0c5d.firebaseio.com",
+    "project_id": "facturacion-c0c5d",
+    "storage_bucket": "facturacion-c0c5d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566586598760:android:448faca1e32a00695fe2dd",
+        "android_client_info": {
+          "package_name": "edu.uoc.facturacion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566586598760-j0mutjj5dfiv0cupkl0ugrug1i97egq5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXnDE8b-PTwLWMmZwSnLSl_6gy3obL85g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566586598760-j0mutjj5dfiv0cupkl0ugrug1i97egq5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

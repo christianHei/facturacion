@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  facturacionServicio: 'http://localhost:8080/',
+  facturacionServicio: 'https://8080-dot-12247859-dot-devshell.appspot.com/'
 };
