@@ -60,10 +60,17 @@ export class RegistroComponent extends ValidacionCampo implements OnInit {
               this.usuarioServicio.obtenerPorNombreUsuario(this.usuario.nombreUsuario)
                 .then((usuario: Usuario) => {
                   if (usuario === null) {
-                    this.restServicio.guardar('usuario/', this.usuario)
-                      .then(() => {
-                        this.ocultar = false;
-                        this.notificacionServicio.notificar('success', this.properties.succes_guardar);
+                    this.usuarioServicio.obtenerPorEmail(this.usuario.email)
+                      .then(usuarioEmail => {
+                        if (usuarioEmail == null) {
+                          this.restServicio.guardar('usuario/', this.usuario)
+                            .then(() => {
+                              this.ocultar = false;
+                              this.notificacionServicio.notificar('success', this.properties.succes_guardar);
+                            });
+                        } else {
+                          this.notificacionServicio.notificar('warn', this.properties.warn_usuario_email_existe);
+                        }
                       });
                   } else {
                     this.notificacionServicio.notificar('warn', this.properties.warn_usuario_existe);

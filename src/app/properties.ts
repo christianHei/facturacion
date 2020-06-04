@@ -76,6 +76,7 @@ export class Properties {
   warn_claves_diferentes = 'La contraseñas no coinciden.';
   warn_empresa_existe = 'Ya existe una empresa con el RUC ingresado.';
   warn_usuario_existe = 'Ya existe el nombre de usuario ingresado.';
+  warn_usuario_email_existe = 'Ya existe un usuario con el email ingresado.';
   warn_usuario_clave_incorrecto = 'Nombre de usuario o clave incorrecto.';
   warn_email_incorrecto = 'Ingrese un email válido.';
   warn_datalle_vacio = 'Ingrese al menos un detalle.';
